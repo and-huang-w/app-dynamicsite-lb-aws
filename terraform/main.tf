@@ -85,6 +85,11 @@ resource "aws_instance" "instance-1a" {
     vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
     user_data              = "${base64encode(data.template_file.user_data.rendered)}"
     key_name               = "vockey"
+
+    tags = {
+        Aluno = "ANDERSON HUANG"
+        Owner = "IaC 2025-01 Checkpoint 02"
+    }
 }
 
 resource "aws_instance" "instance-2a" {
@@ -94,6 +99,11 @@ resource "aws_instance" "instance-2a" {
     vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
     user_data              = "${base64encode(data.template_file.user_data.rendered)}"
     key_name               = "vockey"
+
+    tags = {
+        Aluno = "ANDERSON HUANG"
+        Owner = "IaC 2025-01 Checkpoint 02"
+    }
 }
 
 resource "aws_instance" "instance-3a" {
@@ -103,6 +113,11 @@ resource "aws_instance" "instance-3a" {
     vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
     user_data              = "${base64encode(data.template_file.user_data.rendered)}"
     key_name               = "vockey"
+
+    tags = {
+        Aluno = "ANDERSON HUANG"
+        Owner = "IaC 2025-01 Checkpoint 02"
+    }
 }
 
 resource "aws_instance" "instance-1b" {
@@ -112,6 +127,11 @@ resource "aws_instance" "instance-1b" {
     vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
     user_data              = "${base64encode(data.template_file.user_data.rendered)}"
     key_name               = "vockey"
+
+    tags = {
+        Aluno = "ANDERSON HUANG"
+        Owner = "IaC 2025-01 Checkpoint 02"
+    }
 }
 
 resource "aws_instance" "instance-2b" {
@@ -121,6 +141,11 @@ resource "aws_instance" "instance-2b" {
     vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
     user_data              = "${base64encode(data.template_file.user_data.rendered)}"
     key_name               = "vockey"
+
+    tags = {
+        Aluno = "ANDERSON HUANG"
+        Owner = "IaC 2025-01 Checkpoint 02"
+    }
 }
 
 resource "aws_instance" "instance-3b" {
@@ -130,6 +155,11 @@ resource "aws_instance" "instance-3b" {
     vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
     user_data              = "${base64encode(data.template_file.user_data.rendered)}"
     key_name               = "vockey"
+
+    tags = {
+        Aluno = "ANDERSON HUANG"
+        Owner = "IaC 2025-01 Checkpoint 02"
+    }
 }
 
 # RESOURCE: LOAD BALANCER TARGET GROUP AND ITS MEMBERS
