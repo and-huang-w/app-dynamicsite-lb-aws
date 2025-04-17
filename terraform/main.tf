@@ -87,7 +87,43 @@ resource "aws_instance" "instance-1a" {
     key_name               = "vockey"
 }
 
+resource "aws_instance" "instance-2a" {
+    ami                    = "ami-00a929b66ed6e0de6"
+    instance_type          = "t2.micro"
+    subnet_id              = aws_subnet.sn_pub_az1a.id
+    vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
+    user_data              = "${base64encode(data.template_file.user_data.rendered)}"
+    key_name               = "vockey"
+}
+
+resource "aws_instance" "instance-3a" {
+    ami                    = "ami-00a929b66ed6e0de6"
+    instance_type          = "t2.micro"
+    subnet_id              = aws_subnet.sn_pub_az1a.id
+    vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
+    user_data              = "${base64encode(data.template_file.user_data.rendered)}"
+    key_name               = "vockey"
+}
+
 resource "aws_instance" "instance-1b" {
+    ami                    = "ami-00a929b66ed6e0de6"
+    instance_type          = "t2.micro"
+    subnet_id              = aws_subnet.sn_pub_az1b.id
+    vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
+    user_data              = "${base64encode(data.template_file.user_data.rendered)}"
+    key_name               = "vockey"
+}
+
+resource "aws_instance" "instance-2b" {
+    ami                    = "ami-00a929b66ed6e0de6"
+    instance_type          = "t2.micro"
+    subnet_id              = aws_subnet.sn_pub_az1b.id
+    vpc_security_group_ids = [aws_security_group.vpc_sg_pub.id]
+    user_data              = "${base64encode(data.template_file.user_data.rendered)}"
+    key_name               = "vockey"
+}
+
+resource "aws_instance" "instance-3b" {
     ami                    = "ami-00a929b66ed6e0de6"
     instance_type          = "t2.micro"
     subnet_id              = aws_subnet.sn_pub_az1b.id
@@ -110,9 +146,33 @@ resource "aws_lb_target_group_attachment" "ec2_lb_tg-instance_1a" {
     port             = 80
 }
 
+resource "aws_lb_target_group_attachment" "ec2_lb_tg-instance_2a" {
+    target_group_arn = aws_lb_target_group.ec2_lb_tg.arn
+    target_id        = aws_instance.instance-2a.id
+    port             = 80
+}
+
+resource "aws_lb_target_group_attachment" "ec2_lb_tg-instance_3a" {
+    target_group_arn = aws_lb_target_group.ec2_lb_tg.arn
+    target_id        = aws_instance.instance-3a.id
+    port             = 80
+}
+
 resource "aws_lb_target_group_attachment" "ec2_lb_tg-instance_1b" {
     target_group_arn = aws_lb_target_group.ec2_lb_tg.arn
     target_id        = aws_instance.instance-1b.id
+    port             = 80
+}
+
+resource "aws_lb_target_group_attachment" "ec2_lb_tg-instance_2b" {
+    target_group_arn = aws_lb_target_group.ec2_lb_tg.arn
+    target_id        = aws_instance.instance-2b.id
+    port             = 80
+}
+
+resource "aws_lb_target_group_attachment" "ec2_lb_tg-instance_3b" {
+    target_group_arn = aws_lb_target_group.ec2_lb_tg.arn
+    target_id        = aws_instance.instance-3b.id
     port             = 80
 }
 
